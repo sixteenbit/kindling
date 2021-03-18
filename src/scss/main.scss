@@ -1,0 +1,21 @@
+// Configuration and helpers
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+// Vendors
+
+// Base stuff
+@import 'base/base';
+@import 'base/helpers';
+
+// Layout-related sections
+@import 'layout/header';
+@import 'layout/footer';
+
+// Components
+
+// Page-specific styles
+@import 'pages/home';
+
+// 7. Themes
+@import 'themes/default';

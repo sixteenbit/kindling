@@ -1,0 +1,48 @@
+{
+	"name": "kindling",
+	"version": "0.1.0",
+	"description": "Starter files for a project using Gulp.",
+	"main": "gulpfile.js",
+	"author": "Justin Peacock <justin.peacock@ellucian.com",
+	"private": true,
+	"license": "MIT",
+	"scripts": {
+		"postinstall": "gulp init",
+		"build": "gulp",
+		"scripts": "gulp scripts",
+		"styles": "gulp styles",
+		"images": "gulp images",
+		"watch": "gulp watch",
+		"dist": "gulp dist",
+		"start": "gulp browsersync"
+	},
+	"dependencies": {
+		"@fortawesome/fontawesome-free": "^5.14.0"
+	},
+	"devDependencies": {
+		"browser-sync": "^2.23.6",
+		"clean-css": "^5.1.1",
+		"gulp": "^4.0.2",
+		"gulp-autoprefixer": "^7.0.1",
+		"gulp-cli": "^2.2.1",
+		"gulp-concat": "^2.6.1",
+		"gulp-cssnano": "^2.1.3",
+		"gulp-if": "^3.0.0",
+		"gulp-imagemin": "^7.1.0",
+		"gulp-load-plugins": "^2.0.2",
+		"gulp-plumber": "^1.2.1",
+		"gulp-rename": "^2.0.0",
+		"gulp-replace": "^1.0.0",
+		"gulp-rtlcss": "^1.4.1",
+		"gulp-sass": "^4.0.2",
+		"gulp-sort": "^2.0.0",
+		"gulp-sourcemaps": "^3.0.0",
+		"gulp-uglify": "^3.0.0",
+		"gulp-util": "^3.0.8",
+		"gulp-zip": "^5.0.2",
+		"js-yaml": "^4.0.0",
+		"rimraf": "^3.0.2",
+		"uglify-js": "^3.10.1",
+		"yargs": "^16.2.0"
+	}
+}
