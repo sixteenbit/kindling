@@ -3,7 +3,7 @@
 	"version": "0.1.0",
 	"description": "Starter files for a project using Gulp.",
 	"main": "gulpfile.js",
-	"author": "Justin Peacock <justin.peacock@ellucian.com",
+	"author": "Justin Peacock <code@sixteenbit.dev",
 	"private": true,
 	"license": "MIT",
 	"scripts": {
