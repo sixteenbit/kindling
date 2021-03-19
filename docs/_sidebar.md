@@ -1,7 +1,5 @@
 * [Getting started](/)
 
-* Adding a Framework
+* [Commands](commands.md)
 
-	- [Foundation](foundation.md)
-	- [Bootstrap](bootstrap.md)
-	- [Font Awesome](fontawesome.md)
+* [Adding a Framework](adding-frameworks.md)

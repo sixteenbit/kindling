@@ -1,4 +1,4 @@
-# Kindling
+# Kindling <!-- {docsify-ignore} -->
 
 **Features**
 

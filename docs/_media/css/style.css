@@ -6,3 +6,7 @@
 .sidebar > h1 img {
   max-width: 40px;
 }
+
+.app-sub-sidebar li > a {
+  font-size: 14px;
+}
