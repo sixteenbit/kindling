@@ -6,19 +6,16 @@ PATHS:
   images:
     - "src/img/**/*"
   sass:
-#    motionui:
-#      - "node_modules/motion-ui/src"
 #    foundation:
 #      - "node_modules/foundation-sites/scss"
-    fontawesome:
-      - "node_modules/@fortawesome/fontawesome-free/scss"
+#    fontawesome:
+#      - "node_modules/@fortawesome/fontawesome-free/scss"
   javascript:
     vendors:
-#      - "node_modules/motion-ui/dist/motion-ui.min.js"
 #      - "node_modules/what-input/dist/what-input.min.js"
 #      - "node_modules/foundation-sites/dist/js/foundation.min.js"
     custom:
       - "src/js/**/_*.js"
-  fonts:
-    fontawesome:
-      - "node_modules/@fortawesome/fontawesome-free/webfonts/*"
+#  fonts:
+#    fontawesome:
+#      - "node_modules/@fortawesome/fontawesome-free/webfonts/*"

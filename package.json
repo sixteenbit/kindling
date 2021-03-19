@@ -1,7 +1,7 @@
 {
 	"name": "kindling",
 	"version": "0.1.0",
-	"description": "Starter files for a project using Gulp.",
+	"description": "Start your project with kindling.",
 	"main": "gulpfile.js",
 	"author": "Justin Peacock <code@sixteenbit.dev",
 	"private": true,
@@ -15,9 +15,6 @@
 		"watch": "gulp watch",
 		"dist": "gulp dist",
 		"start": "gulp browsersync"
-	},
-	"dependencies": {
-		"@fortawesome/fontawesome-free": "^5.14.0"
 	},
 	"devDependencies": {
 		"browser-sync": "^2.23.6",

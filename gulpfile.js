@@ -42,41 +42,8 @@ gulp.task(
 	}
 );
 
-gulp.task(
-	'sass:fontawesome',
-	function () {
-		return gulp.src('src/scss/vendors/fontawesome/fontawesome.scss')
-			.pipe($.sourcemaps.init())
-			.pipe(
-				$.sass(
-					{
-						includePaths: PATHS.sass.fontawesome,
-						outputStyle: 'expanded'
-					}
-				)
-					.on('error', $.sass.logError)
-			)
-			.pipe($.autoprefixer())
-			.pipe($.if(PRODUCTION, $.cssnano()))
-			.pipe($.if(!PRODUCTION, $.sourcemaps.write()))
-			.pipe(gulp.dest('assets/css'))
-			.pipe($.rtlcss())
-			.pipe(rename({suffix: '-rtl'}))
-			.pipe(gulp.dest('assets/css'));
-	}
-);
-
-// Copy Font Awesome fonts
-gulp.task(
-	'copy:fonts',
-	function () {
-		return gulp.src(PATHS.fonts.fontawesome)
-			.pipe(gulp.dest('assets/webfonts'));
-	}
-);
-
 // Compiles Sass files into CSS
-gulp.task('styles', gulp.series('sass:style', 'sass:fontawesome', 'copy:fonts'));
+gulp.task('styles', gulp.series('sass:style'));
 
 
 gulp.task(
@@ -133,7 +100,7 @@ gulp.task('browsersync', function () {
 function watch() {
 	gulp.watch('src/scss/**/*.scss').on('all', gulp.series(gulp.parallel('styles'), browser.reload));
 	gulp.watch('src/js/**/*.js').on('all', gulp.series('javascript', browser.reload));
-	gulp.watch('**/*.php').on('all', gulp.series(browser.reload));
+	gulp.watch('**/*.html').on('all', gulp.series(browser.reload));
 }
 
 // Clean directory and build the assets
