@@ -1,33 +1,37 @@
-# kindling
+# Kindling <!-- {docsify-ignore} -->
+
+**Features**
 
 - Sass compilation and prefixing
-- JavaScript module bundling with webpack
-- Built-in BrowserSync server
+- Built-in [BrowserSync](https://www.browsersync.io/) server
 - For production builds:
-  - CSS compression
-  - JavaScript compression
-  - Image compression
+	- CSS compression
+	- JavaScript compression
+	- Image compression
+- Examples with Foundation and Bootstrap
 
-## Prerequisites
+**Prerequisites**
 
 Make sure you have the following installed:
 
 - [Node.js](https://nodejs.org/en/)
 - [Yarn](https://yarnpkg.com/)
 
-### Setup
+## Getting started <!-- {docsify-ignore} -->
 
-To set up the template, first download it.
+### Create a repository from the template
 
-Clone repo into your existing project and install dependencies:
+You can click on the following link to generate a repository using the template: [Create a new repository](https://github.com/sixteenbit/kindling/generate) from sixteenbit/kindling. Alternately, you can follow these steps:
 
-```bash
-git clone https://github.com/sixteenbit/kindling.git .
-yarn
-```
+1. Visit the Kindling repository on GitHub: https://github.com/sixteenbit/kindling
+1. Click on the "Use this template" button on the top-right
+1. Enter a name for your new repository
+1. Click on "Create repository from template"
 
-Finally, run `yarn server` to run Gulp. Your site will be created and viewable at this URL:
+For more details on how to create repositories using template, read the article on the GitHub website: [Creating a repository from a template](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template).
 
-```
-http://localhost:8000
-```
+### After creating your repository
+
+Once your repository is created, clone it to begin development.
+
+From the root of the project, run `yarn` to download dependencies and initially build the assets.
