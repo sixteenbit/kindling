@@ -1,42 +1,56 @@
 # Commands
 
-## Default task to build the project
+## gulp gulp
+
+The **default** task will compile the stylesheets, concatenate javascript files, and optimize images.
 
 ```bash
 gulp
 ```
 
-## Builds the project
+## gulp watch
 
-```bash
-gulp build
-```
-
-## Runs the build task and watches for file changes
+The **watch** task will run the **default** task as well as watch sass, js, and html files for any changes.
 
 ```bash
 gulp watch
 ```
 
-## Runs the styles task
+## gulp styles
+
+The **styles** task will compile SCSS to CSS with auto-prefixing, sourcemaps, and RTL support.
 
 ```bash
 gulp styles
 ```
 
-## Runs the javascript task
+## gulp javascript
+
+The **javascript** task will concat all js files located in `src/js/` prefixed with an `_` into `assets/js/app.js`.
 
 ```bash
 gulp javascript
 ```
 
-## Starts Browsersync
+## gulp server
+
+The **server** task will run the **default** task, start a local server, and **watch** for local file changes.
 
 ```bash
 gulp server
 ```
 
-## Copy theme to dist folder for production
+For more information, see [Browsersync](https://www.browsersync.io/).
+
+## gulp release
+
+The **release** task will run the **default** task and copy only production files to the `release` directory.
+
+```bash
+gulp release
+```
+
+Passing the `--production` flag with any of these commands will minify all CSS and JS files.
 
 ```bash
 gulp release --production

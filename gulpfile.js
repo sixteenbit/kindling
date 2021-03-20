@@ -21,6 +21,12 @@ function loadConfig() {
 	return yaml.load(ymlFile);
 }
 
+// Delete the "release" folder
+// This happens every time a build starts
+function clean(done) {
+	rimraf( 'release', done );
+}
+
 gulp.task(
 	'sass:style',
 	function () {
@@ -34,6 +40,7 @@ gulp.task(
 				)
 			)
 			.pipe($.autoprefixer())
+			.pipe($.if(PRODUCTION, $.cssnano()))
 			.pipe($.if(!PRODUCTION, $.sourcemaps.write()))
 			.pipe(gulp.dest('assets/css'))
 			.pipe($.rtlcss())
@@ -45,21 +52,12 @@ gulp.task(
 // Compiles Sass files into CSS
 gulp.task('styles', gulp.series('sass:style'));
 
-
-gulp.task(
-	'javascript:vendors',
-	function () {
-		return gulp.src(PATHS.javascript.vendors)
-			.pipe(gulp.dest('assets/js'));
-	}
-);
-
 gulp.task(
 	'javascript:custom',
 	function () {
 		return gulp.src(PATHS.javascript.custom)
 			.pipe($.sourcemaps.init())
-			.pipe($.concat('theme.js'))
+			.pipe($.concat('app.js'))
 			.pipe(gulp.dest('assets/js'))
 			.pipe($.if(PRODUCTION, $.uglify({'mangle': false})))
 			.pipe($.if(!PRODUCTION, $.sourcemaps.write()))
@@ -77,6 +75,29 @@ gulp.task(
 		return gulp.src(PATHS.images)
 			.pipe($.imagemin())
 			.pipe(gulp.dest('assets/img'))
+	}
+);
+
+gulp.task(
+	'copy:release',
+	function () {
+		return gulp.src(
+			[
+				'**/*',
+				'!.*',
+				'!config.yml',
+				'!gulpfile.js',
+				'!package.json',
+				'!yarn.lock',
+				'!release',
+				'!release/**/*',
+				'!docs',
+				'!docs/**/*',
+				'!node_modules',
+				'!node_modules/**/*'
+			]
+		)
+			.pipe(gulp.dest('release'))
 	}
 );
 
@@ -111,6 +132,9 @@ gulp.task('watch', gulp.series('default', watch));
 
 // Build the assets, run the server, and watch for file changes
 gulp.task('server', gulp.series('default', 'browsersync', watch));
+
+// Build project and copy to clean directory
+gulp.task('release', gulp.series(clean, 'default', 'copy:release'));
 
 // Initial build of the project
 gulp.task('init', gulp.series('default'));

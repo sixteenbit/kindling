@@ -103,4 +103,11 @@ Next, add the following to line 32 in `gulpfile.js`.
 includePaths: PATHS.sass.foundation,
 ```
 
+Next, add the following to the `javascript` task:
+
+```js
+// Compiles JavaScript into a single file
+gulp.task('javascript', gulp.series('javascript:custom', 'javascript:vedors'));
+```
+
 ## Bootstrap
