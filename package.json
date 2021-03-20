@@ -5,7 +5,7 @@
 	"main": "gulpfile.js",
 	"author": "Justin Peacock <code@sixteenbit.dev",
 	"private": true,
-	"license": "MIT",
+	"license": "GNUv2+",
 	"scripts": {
 		"postinstall": "gulp init",
 		"build": "gulp",
