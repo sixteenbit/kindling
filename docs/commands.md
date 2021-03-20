@@ -1,6 +1,6 @@
 # Commands
 
-## gulp gulp
+## gulp
 
 The **default** task will compile the stylesheets, concatenate javascript files, and optimize images.
 
