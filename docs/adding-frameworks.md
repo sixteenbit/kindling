@@ -4,7 +4,7 @@
 
 First, add Font Awesome as a dependency through yarn with the following:
 
-```bash
+```shell
 yarn add @fortawesome/fontawesome-free
 ```
 
@@ -13,6 +13,7 @@ Next, uncomment the following in `config.yml`
 ```yaml
 #    foundation:
 #      - "node_modules/foundation-sites/scss"
+...
 ```
 
 and
@@ -21,6 +22,7 @@ and
 #  fonts:
 #    fontawesome:
 #      - "node_modules/@fortawesome/fontawesome-free/webfonts/*"
+...
 ```
 
 Next, add the following to line 44 in `gulpfile.js`.
@@ -58,6 +60,7 @@ gulp.task(
 			.pipe(gulp.dest('assets/webfonts'));
 	}
 );
+...
 ```
 
 Next, update the styles task to the following.
@@ -65,6 +68,7 @@ Next, update the styles task to the following.
 ```js
 // Compiles Sass files into CSS
 gulp.task('styles', gulp.series('sass:style', 'sass:fontawesome', 'copy:fonts'));
+...
 ```
 
 Now run the build task with `gulp`.
@@ -79,7 +83,7 @@ Lastly, add the stylesheet within the `<head>` of your .html file.
 
 First, add Font Awesome as a dependency through yarn with the following:
 
-```bash
+```shell
 yarn add foundation-sites what-input
 ```
 

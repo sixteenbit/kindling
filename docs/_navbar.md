@@ -1,1 +1,1 @@
-* [Create from template](https://github.com/sixteenbit/kindling/generate)
+* [Start a Project](https://github.com/sixteenbit/kindling/generate)
