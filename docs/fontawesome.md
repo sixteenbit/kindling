@@ -1,5 +1,7 @@
 # Font Awesome
 
+There are multiple ways to use Font Awesome, but an easy method is to use their SVG + JS framework.
+
 ## Step 1 – Add Font Awesome as a Dependency
 
 Execute the following command to add `fontawesome-free` as a dependency through `yarn`.
@@ -13,44 +15,42 @@ yarn add @fortawesome/fontawesome-free
 Open the file `config.yml` and uncomment the following:
 
 ```yaml
-#    foundation:
-#      - "node_modules/foundation-sites/scss"
-
-...
-
-#  fonts:
 #    fontawesome:
-#      - "node_modules/@fortawesome/fontawesome-free/webfonts/*"
+#      - "node_modules/@fortawesome/fontawesome-free/js/all.js"
 ```
 
 ## Step 3 – Create a New Gulp Task
 
-Open the file `gulpfile.js` and add the following around `line 44`:
+Open the file `gulpfile.js` and add the following around `line 67`:
 
 ```js
 gulp.task(
-	'sass:fontawesome',
-	function () {
-		return gulp.src('src/scss/vendors/fontawesome/fontawesome.scss')
-			.pipe($.sourcemaps.init())
-			.pipe(
-				$.sass(
-					{
-						includePaths: PATHS.sass.fontawesome,
-						outputStyle: 'expanded'
-					}
-				)
-					.on('error', $.sass.logError)
-			)
-			.pipe($.autoprefixer())
-			.pipe($.if(PRODUCTION, $.cssnano()))
-			.pipe($.if(!PRODUCTION, $.sourcemaps.write()))
-			.pipe(gulp.dest('assets/css'))
-			.pipe($.rtlcss())
-			.pipe(rename({suffix: '-rtl'}))
-			.pipe(gulp.dest('assets/css'));
-	}
+		'javascript:fontawesome',
+		function () {
+			return gulp.src(PATHS.javascript.fontawesome)
+					.pipe($.sourcemaps.init())
+					.pipe($.concat('fontawesome.js'))
+					.pipe(gulp.dest('assets/js'))
+					.pipe($.if(PRODUCTION, $.uglify({'mangle': false})))
+					.pipe($.if(!PRODUCTION, $.sourcemaps.write()))
+					.pipe(gulp.dest('assets/js'))
+		}
 );
 ```
 
-This is similar to the `styles` task but specific to `fontawesome.scss`.
+Next, add the task to `gulp.task('javascript', gulp.series('javascript:custom'));`
+
+```js
+// Compiles JavaScript into a single file
+gulp.task('javascript', gulp.series('javascript:custom', 'javascript:fontawesome'));
+```
+
+This will copy `node_modules/@fortawesome/fontawesome-free/js/all.js` to `assets/js/fontawesome.js`.
+
+## Step 4 – Add to HTML
+
+Place the following code before the closing `</body>` in your HTML file.
+
+```html
+<script src="assets/js/fontawesome.js"></script>
+```

@@ -8,14 +8,12 @@ PATHS:
   sass:
 #    foundation:
 #      - "node_modules/foundation-sites/scss"
-#    fontawesome:
-#      - "node_modules/@fortawesome/fontawesome-free/scss"
   javascript:
     vendors:
+#      - "node_modules/jquery/dist/jquery.min.js"
 #      - "node_modules/what-input/dist/what-input.min.js"
 #      - "node_modules/foundation-sites/dist/js/foundation.min.js"
+#    fontawesome:
+#      - "node_modules/@fortawesome/fontawesome-free/js/all.js"
     custom:
       - "src/js/**/_*.js"
-#  fonts:
-#    fontawesome:
-#      - "node_modules/@fortawesome/fontawesome-free/webfonts/*"
