@@ -24,7 +24,7 @@ function loadConfig() {
 // Delete the "release" folder
 // This happens every time a build starts
 function clean(done) {
-	rimraf( 'release', done );
+	rimraf('release', done);
 }
 
 gulp.task(

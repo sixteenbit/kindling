@@ -10,7 +10,7 @@ Execute the following command to add `fontawesome-free` as a dependency through 
 yarn add @fortawesome/fontawesome-free
 ```
 
-## Step 2 – Add Font Awesome Directories to Config
+## Step 2 – Add Font Awesome to the Config
 
 Open the file `config.yml` and uncomment the following:
 
@@ -38,18 +38,18 @@ gulp.task(
 );
 ```
 
-Next, add the task to `gulp.task('javascript', gulp.series('javascript:custom'));`
+Next, add `javascript:vendors` to the task array like the following:
 
 ```js
 // Compiles JavaScript into a single file
-gulp.task('javascript', gulp.series('javascript:custom', 'javascript:fontawesome'));
+gulp.task('javascript', gulp.series('javascript:custom', 'javascript:vendors'));
 ```
 
 This will copy `node_modules/@fortawesome/fontawesome-free/js/all.js` to `assets/js/fontawesome.js`.
 
-## Step 4 – Add to HTML
+## Step 4 – Add JavaScript to HTML
 
-Place the following code before the closing `</body>` in your HTML file.
+Add the following before the closing `</body>` of your template:
 
 ```html
 <script src="assets/js/fontawesome.js"></script>
